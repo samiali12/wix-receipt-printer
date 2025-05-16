@@ -21,6 +21,18 @@ const LOG_FILE = path.join(__dirname, "printer_simulation.log");
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.get("/", (req, res) => {
+  res.send("🖨️ PrintNode Simulation Server");
+});
+
+app.get("/health", (req, res) => {
+  res.status(200).json({
+    status: "OK",
+    message: "Server is running",
+    mode: SIMULATION_MODE ? "SIMULATION" : "PRODUCTION",
+  });
+});
+
 // Mock printer for simulation mode
 class MockPrinter {
   constructor() {
