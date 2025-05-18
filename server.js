@@ -21,7 +21,7 @@ const LOG_FILE = path.join(__dirname, "printer_simulation.log");
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get("/", (req, res) => {
+app.get("/print", (req, res) => {
   res.send("🖨️ PrintNode Simulation Server");
 });
 
