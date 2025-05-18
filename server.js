@@ -8,6 +8,13 @@ require("dotenv").config();
 const app = express();
 const port = process.env.PORT || 8000;
 
+app.use(
+  cors({
+    origin: ["https://www.classypizza786.com/"],
+    credentials: true,
+  })
+);
+
 // Set to false when you want to use the real printer via PrintNode
 const SIMULATION_MODE = process.env.SIMULATION_MODE === "true";
 
